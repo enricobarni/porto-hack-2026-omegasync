@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - .:/app
+      - omegasync_node_modules:/app/node_modules
+
+    command: npm run dev -- --hostname 0.0.0.0
+
+volumes:
+  omegasync_node_modules:
